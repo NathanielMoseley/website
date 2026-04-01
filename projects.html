@@ -1,0 +1,162 @@
+<div id="content">
+    <h2>Projects</h2>
+    <p>
+        This is something of a placeholder where I will put information about projects I've worked on.
+        This will probably include pictures of some of the woodworking I am doing,
+        and maybe descriptions or code samples of projects I've worked on for school and personal use.
+    </p>
+    <section id="networking">
+        <div class="page-header">
+            <h2>Networking Projects</h2>
+        </div>
+        <p>I run a small enterprise-grade network at home with several servers and pieces of hardware:</p>
+        <dl>
+            <dt>Firewall / DNS / Routing / Monitoring</dt>
+            <dd>pfSense 1U server</dd>
+        </dl>
+        <dl>
+            <dt>NAS / Virtualization / Applications</dt>
+            <dd>freeNAS 4U server</dd>
+        </dl>
+        <dl>
+            <dt>Switches</dt>
+            <dd>Ubiquiti Unifi 24 port Switch, TPLink 8 port Switch</dd>
+        </dl>
+        <dl>
+            <dt>WLAN</dt>
+            <dd>Ubiquiti Unifi AP Pro</dd>
+        </dl>
+        <p>This allows me to do a number of fun and useful things, such as:</p>
+        <ul style="list-style:none">
+            <li>Plex Media Server application running on freeNAS for local/remote media access</li>
+            <li>Advanced NAT and forwarding to aplications</li>
+            <li>Assisting serving content for a distributed website</li>
+            <li>Home automation scripting/hacking, such as getting TP-Link HS105 smart plugs to work with Logitech
+                Harmony</li>
+            <li>Remote backups for all computers/phones in house, ActiveDirectory access to shares</li>
+            <li>Guest and hidden WiFi networks, hidden for laptop upgraded to Windows 10, but W10 WLAN drivers aren't
+                compatible with WPA networks, must use unsecured (special network restricted by mac address)</li>
+            <li>Special subnets and firewall rules for IOT devices</li>
+        </ul>
+    </section>
+    <h2>Scripts</h2>
+    <section id="windows">
+        <div class="page-header">
+            <h2>Windows</h2>
+        </div>
+        <div class="row">
+            <div class="span">
+                <dl>
+                    <dt>
+                        <h3>Wallpaper change AutoHotkey</h3>
+                    </dt>
+                    <dd><a href="/~nmoseley/projects/scripts/NextBackground.exe">exe</a> • <a
+                            href="/~nmoseley/projects/scripts/NextBackground.ahk">ahk source</a></dd>
+                </dl>Press <kbd>win</kbd> + <kbd>n</kbd> to switch to the next desktop background for versions
+                of windows with desktop slideshow before Windows 8. Tested on Windows 7, other versions need testing.
+                <br>
+                This was inspired by a search for a hotkey that just works–like it does in 8, but before 8 was a thing.
+                I found a couple pages like <a
+                    href="http://superuser.com/questions/71860/is-there-a-windows-7-keyboard-shortcut-to-change-the-desktop-background">this
+                    one on super user</a> which were close, but not perfect.
+                My improvements don't flash the desktop or anything, and it works if you hold down <kbd>win</kbd> and
+                keep hitting <kbd>n</kbd> (until some hotkey timeout expires on the windows key).
+                It operates on a similar mechanic but uses controls rather than clicking on raw coordinates, so it'll
+                work no matter what is on top. I just stick the exe in my startup folder.
+            </div>
+            <div class="span">
+                <dl>
+                    <dt>
+                        <h3>Brightness Setter</h3>
+                    </dt>
+                    <dd><a href="/~nmoseley/projects/scripts/BrightnessSetter.exe">exe</a> • <a
+                            href="/~nmoseley/projects/scripts/BrightnessSetter.ahk">ahk source</a></dd>
+                </dl>This binds <kbd>ctrl</kbd> + <kbc>shift + <kbd>F8</kbd> and <kbd>ctrl</kbd> + <kbd>shift</kbd> +
+                    <kbd>F9</kbd> to minimum and maximum brightness, respectively.<br>
+                    I find myself setting the brightness on my laptop to minimum or maximum depending on the time of day
+                    or what I'm doing, but there is no good shortcut to do this, other than pressing <kbd>fn</kbd> +
+                    <kbd>F8</kbd> or <kbd>fn</kbd> + <kbd>F9</kbd> 15 times. That can get a little repetitive.
+                    This has a bit of a delay before the hotkey is recognized, and it would be nice if it used the
+                    <kbd>fn</kbd> key not the <kbd>ctrl</kbd> key, but that's not possible due to the way the function
+                    keys are bound in BIOS.</kbc>
+            </div>
+            <div class="span">
+                <dl>
+                    <dt>
+                        <h3>Toggle Lid Sleep</h3>
+                    </dt>
+                    <dd><a href="/~nmoseley/projects/scripts/ToggleLidSleep.bat">batch</a></dd>
+                </dl>Run this script to toggle what closing the lid on your laptop does. It switches between sleep and
+                nothing, but can be adjusted for other settings.
+                This is a great little script for making your laptop into a temporary iPod.
+                Just put it in your start menu or link to it from there and a quick <kbd>win</kbd> → togg →
+                <kbd>enter</kbd> can call it.
+                I run this on the bus to save power (most of which is used by the LCD) or when listening to podcasts at
+                night to avoid the bright light.
+            </div>
+            <div class="span">
+                <dl>
+                    <dt>
+                        <h3>Desktop Background Path</h3>
+                    </dt>
+                    <dd><a href="/~nmoseley/projects/scripts/path2back.bat">batch</a></dd>
+                </dl>This script will print the file path to the current desktop background image.<br>
+                There's no real other way to determine the image path if you have a random slideshow for your
+                background.
+                If you want to know the image that's currently showing, just run this script. I leave it on the desktop
+                for easy access.
+            </div>
+            <div class="span">
+                <dl>
+                    <dt>
+                        <h3>Restart Aero</h3>
+                    </dt>
+                    <dd><a href="/~nmoseley/projects/scripts/RestartAero.bat">batch</a></dd>
+                </dl>This script is a quick way to restart aero if windows stops the service due to system slowdown.
+                It can be difficult to get windows to stop terminating the service (you can only tell it not to do it as
+                much, but it still will under certain conditions).
+                If you're doing system intensive work or gaming, sometimes windows will detect the system slowdown and
+                try stopping aero to speed things up. If, like me,
+                you like being able to see through the start menu and all the other UI niceities that aero offers, this
+                can get annoying. Put this or a link to it in your start menu,
+                and a quick <kbd>win</kbd> + rest + <kbd>enter</kbd> can bring back all those UI goodies.
+            </div>
+            <div class="span">
+                <dl>
+                    <dt>
+                        <h3>Batch as Admin</h3>
+                    </dt>
+                    <dd><a href="/~nmoseley/projects/scripts/BatchAsAdmin.bat">batch</a></dd>
+                </dl>This can be put at the top of any batch script to automatically request elevation.
+                Credit goes to <a
+                    href="https://sites.google.com/site/eneerge/home/BatchGotAdmin">https://sites.google.com/site/eneerge/home/BatchGotAdmin</a>
+                for this script.
+                I'm just putting it here to make it easier for me to find in the future, really.
+            </div>
+            <div class="span">
+                <dl>
+                    <dt>
+                        <h3>Switch Internet Connection DNS Between Automatic (DHCP) and 127.0.0.1</h3>
+                    </dt>
+                    <dd><a href="/~nmoseley/projects/scripts/SwitchAcrylicOrDHCP.bat">batch</a></dd>
+                </dl>This is specifically made to work with Acrylic DNS Proxy.
+                The script takes any currently connected internet connections that aren't VirtualBox related and changes
+                their DNS settings. The idea is that Acrylic is running on 127.0.0.1, and this switches between
+                automatic DNS and Acrylic. (eg. for when you use Acrylic for ad blocking and it's blocking something it
+                shouldn't).
+            </div>
+            <div class="span">
+                <dl>
+                    <dt>
+                        <h3>Chrome Close Protect</h3>
+                    </dt>
+                    <dd><a href="/~nmoseley/projects/scripts/ChromeCloseProtect.exe">exe</a> • <a
+                            href="/~nmoseley/projects/scripts/ChromeCloseProtect.ahk">ahk source</a></dd>
+                </dl>This disables the <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>q</kbd>
+                and <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>w</kbd> shortcuts in Google Chrome, when the window is
+                active. It's useful so you don't accidentally close all your tabs or windows when trying to
+                hit other shortcuts, like <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>tab</kbd>.
+            </div>
+        </div>
+    </section>
+</div>
