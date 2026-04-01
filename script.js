@@ -1,3 +1,7 @@
+document.head.appendChild(document.createElement("base")).setAttribute("href", 
+  document.currentScript.src.replace("/script.js", "")
+);
+
 document.addEventListener("DOMContentLoaded", () => {
   // Fake visitor counter using localStorage
   const counter = document.getElementById("count");
