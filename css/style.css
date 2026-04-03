@@ -1,0 +1,132 @@
+:root {
+  --bg: black;
+  --text: lime;
+  --link: cyan;
+  --vlink: magenta;
+  --accent: magenta;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  background: url(../img/stars.gif), var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Comic Sans MS", cursive;
+}
+
+a {
+  color: var(--link);
+}
+a:visited {
+  color: var(--vlink);
+}
+
+center {
+  text-align: center;
+}
+
+/* Main area: left + right columns */
+#frameset {
+  display: flex;
+  flex: 1; /* take remaining height */
+  min-height: 0; /* allow scrolling in flex children */
+}
+
+/* Left column: full height */
+#sidebar {
+  width: 200px;
+  background-color: #000;
+  border-right: 3px groove gray;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+/* Right column: vertical flex to push footer down */
+#main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-left: 2px inset gray;
+  min-height: 0; /* allow content scrolling */
+}
+#main #header {
+  height: 100px;
+  flex-shrink: 0; /* prevent shrinking */
+}
+#main {
+  /* Content area fills space above footer */
+}
+#main #content {
+  flex: 1; /* takes all available vertical space */
+  overflow-y: auto; /* scroll if content is long */
+}
+#main {
+  /* Footer only under right column */
+}
+#main #footer {
+  height: 120px;
+  line-height: 50px; /* vertically center */
+  flex-shrink: 0; /* prevent shrinking */
+}
+
+hr {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+/* Rainbow text but actually modern */
+.rainbow {
+  background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet);
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px white;
+  }
+  to {
+    text-shadow: 0 0 20px magenta;
+  }
+}
+.box {
+  border: 3px dashed var(--accent);
+  padding: 20px;
+  margin: 10px;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.box.active {
+  border-color: var(--link);
+}
+
+.box.active a {
+  background-color: var(--accent);
+  color: var(--bg);
+}
+
+/* Modern grid hidden under retro look */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+/* Fake blink (since real <blink> is dead) */
+blink {
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
