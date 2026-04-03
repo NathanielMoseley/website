@@ -1,19 +1,20 @@
 document.head.appendChild(document.createElement("base")).setAttribute("href", 
-  document.currentScript.src.replace("/script.js", "/")
+  document.currentScript.src.replace(new RegExp("/js/script(?:\\..{8})?\\.js"), "/")
 );
 
 document.addEventListener("DOMContentLoaded", () => {
   // Fake visitor counter using localStorage
-  const counter = document.getElementById("count");
   let visits = localStorage.getItem("visits") || 123;
-
   visits++;
   localStorage.setItem("visits", visits);
+
+  const counter = document.getElementById("count");
+  if (!counter) return;
   counter.textContent = visits.toString().padStart(6, "0");
 });
 
 // Mystery button (progressive enhancement)
-document.getElementById("mysteryBtn").addEventListener("click", () => {
+document.getElementById("mysteryBtn")?.addEventListener("click", () => {
   alert("You found nothing. Or did you?");
 });
 
@@ -27,7 +28,7 @@ function setActiveLink(url) {
     if (a.getAttribute("href") === url) {
       a.closest('.box').classList.add("active");
     } else {
-      a.closest('.box').classList.remove("active");
+      a.closest('.box')?.classList.remove("active");
     }
   });
 }
@@ -41,13 +42,16 @@ async function loadPage(url, { push = true } = {}) {
     const parser = new DOMParser();
     const doc = parser.parseFromString(text, "text/html");
 
-    // Extract only the content section
+    const newHeader = doc.querySelector("#header");
     const newContent = doc.querySelector("#content");
 
     if (!newContent) {
       throw new Error("No #content found in " + url);
     }
 
+    if (newHeader) {
+      document.querySelector("#header").innerHTML = newHeader.innerHTML;
+    }
     // Replace current content
     document.querySelector("#content").innerHTML = newContent.innerHTML;
   } catch (err) {
@@ -89,6 +93,6 @@ window.addEventListener("popstate", () => {
   loadPage(location.pathname, { push: false });
 });
 
-document.querySelector('.futurama').addEventListener('click', () => {
-  window.open('https://www.youtube.com/watch?v=edCqF_NtpOQ', '_blank').focus();
+document.querySelector('q')?.addEventListener('click', (e) => {
+  window.open(e.target.getAttribute('cite'), '_blank').focus();
 });

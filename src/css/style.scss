@@ -13,7 +13,7 @@ html, body {
 }
 
 body {
-  background: url('stars.gif'), var(--bg);
+  background: url('@images/stars.gif'), var(--bg);
   color: var(--text);
   
   display: flex;
@@ -24,10 +24,10 @@ body {
 
 a {
   color: var(--link);
-}
 
-a:visited {
-  color: var(--vlink);
+  &:visited {
+    color: var(--vlink);
+  }
 }
 
 center {
@@ -58,25 +58,24 @@ center {
   padding: 10px;
   border-left: 2px inset gray;
   min-height: 0; /* allow content scrolling */
-}
 
-#main #header {
+#header {
   height: 100px;
-  flex-shrink: 0; /* prevent shrinking */
+ flex-shrink: 0; /* prevent shrinking */
 }
 
 /* Content area fills space above footer */
-#main #content {
+#content {
   flex: 1; /* takes all available vertical space */
   overflow-y: auto; /* scroll if content is long */
 }
 
 /* Footer only under right column */
-#main #footer {
+#footer {
   height: 120px;
   line-height: 50px; /* vertically center */
   flex-shrink: 0; /* prevent shrinking */
-}
+}}
 
 hr {
   margin-left: -10px;
