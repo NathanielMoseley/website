@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   --bg: black;
   --text: lime;
@@ -129,4 +130,11 @@ blink {
   50% {
     opacity: 0;
   }
+}
+blockquote footer {
+  margin-left: 20px;
+  font-size: 0.9em;
+}
+blockquote footer::before {
+  content: "– "; /* en dash nbsp */
 }
