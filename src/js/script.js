@@ -3,6 +3,20 @@ document.head.appendChild(document.createElement("base")).setAttribute("href",
 );
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Repeat on load new pages any binds made in here targetting dynamic #content and #header sections
+  document.getElementById("mysteryBtn")?.addEventListener("click", () => {
+    alert("You found nothing. Or did you?");
+  });
+
+  document.querySelector('q')?.addEventListener('click', (e) => {
+    window.open(e.target.getAttribute('cite'), '_blank').focus();
+  });
+
+  // Subtle performance trick: lazy load images
+  document.querySelectorAll("img").forEach(img => {
+    img.loading = "lazy";
+  });
+
   // Fake visitor counter using localStorage
   let visits = localStorage.getItem("visits") || 123;
   visits++;
@@ -11,16 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const counter = document.getElementById("count");
   if (!counter) return;
   counter.textContent = visits.toString().padStart(6, "0");
-});
-
-// Mystery button (progressive enhancement)
-document.getElementById("mysteryBtn")?.addEventListener("click", () => {
-  alert("You found nothing. Or did you?");
-});
-
-// Subtle performance trick: lazy load images
-document.querySelectorAll("img").forEach(img => {
-  img.loading = "lazy";
 });
 
 function setActiveLink(url) {
@@ -91,8 +95,4 @@ document.addEventListener("click", (e) => {
 
 window.addEventListener("popstate", () => {
   loadPage(location.pathname, { push: false });
-});
-
-document.querySelector('q')?.addEventListener('click', (e) => {
-  window.open(e.target.getAttribute('cite'), '_blank').focus();
 });
